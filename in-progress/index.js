@@ -6,6 +6,9 @@ const { appInfo } = require("./app-specific.js")
 const host = appInfo.host
 
 function login(username, password){
+    /*
+    Login to QBittorrent WebUI and return cookie used for all other operations with the WebUI
+    */
     return new Promise((res, rej) =>{
         const loginInfo = new FormData()
         loginInfo.append("username", username)
