@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+#App Specific With Sensitive Credentials
+in-progress/app-specific.js
