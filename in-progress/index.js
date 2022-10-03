@@ -30,6 +30,9 @@ function login(username, password){
 }
 
 function get_blob(input_cookie){
+    /*
+    Gets a general blob of all torrents from the WEBUI, can use this to build the interface
+    */
     return new Promise((res, rej) => {
         headers = {
             headers : {
