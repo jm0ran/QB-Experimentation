@@ -50,9 +50,33 @@ function get_blob(input_cookie){
     })
 }
 
+function get_blob_cat(input_cookie, category){
+    /*
+    Gets a general blob of all torrents from the WEBUI passing in a category, can use this to build the interface
+    */
+    return new Promise((res, rej) => {
+        const dataToPass = new FormData()
+        dataToPass.append("category", category)
+
+        options = {
+            headers : {
+            Referer: host,
+            Cookie : input_cookie
+        }
+    }
+        axios.post(host + "/api/v2/torrents/info", dataToPass, options)
+        .then((response) => {
+            res(response)
+        },
+        (error) => {
+            rej(error)
+        })
+    })
+}
+
 
 login(appInfo.username, appInfo.password)
-.then((result) => get_blob(result)).then((result2) => {
+.then((result) => get_blob_cat(result, appInfo.categoryToSearch)).then((result2) => {
     console.log(result2)
 })
 
